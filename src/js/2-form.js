@@ -7,11 +7,9 @@ const formData = {
 const fillFields = filledFields => {
   for (const key in filledFields) {
     // console.log(key, ':', filledFields[key]);
-    feedbackForm.elements[key].value = filledFields;
-    console.log(fillFields[key]);
+    feedbackForm.elements[key].value = filledFields[key];
   }
 };
-
 fillFields(JSON.parse(localStorage.getItem('feedback-form-state')));
 
 const formChangeListener = event => {
@@ -23,10 +21,7 @@ const formChangeListener = event => {
 
   localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 };
-
 feedbackForm.addEventListener('input', formChangeListener);
-
-// =========== returning answers in fields ===========
 
 const btn = document.querySelector('.feedback-form button');
 
@@ -38,6 +33,4 @@ const btnSubmitListener = event => {
   }
   feedbackForm.reset();
 };
-// localStorage.removeItem('feedback-form-state');
-
 feedbackForm.addEventListener('submit', btnSubmitListener);
