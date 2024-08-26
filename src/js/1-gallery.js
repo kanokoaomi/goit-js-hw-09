@@ -1,3 +1,6 @@
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const images = [
   {
     preview:
@@ -83,9 +86,6 @@ const createPictureGallery = images
 
 const gallery = document.querySelector('.gallery');
 gallery.insertAdjacentHTML('beforeend', createPictureGallery);
-
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
 
 let lightbox = new SimpleLightbox('.gallery  a', {
   navText: ['<', '>'],
